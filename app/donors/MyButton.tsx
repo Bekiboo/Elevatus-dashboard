@@ -1,12 +1,5 @@
-export function MyButton() {
-    return (
-      <button className="p-2 bg-red-500">I&apos;m a button</button>
-    );
-  }
+import { useState } from 'react'
 
-export function MyBidule() {
-    return (
-      <button>I&apos;m a Bidule</button>
-    );
-  }
-
+export function MyButton({ count, onClick }) {
+  return <button onClick={onClick}>I&apos;m a {count}</button>
+}
