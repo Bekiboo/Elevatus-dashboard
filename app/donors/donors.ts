@@ -1,5 +1,5 @@
 interface Donor {
-  id: number
+  id: string
   name: string
   email: string
   startDate: string
@@ -14,7 +14,7 @@ interface Donor {
 
 export const donors: Donor[] = [
   {
-    id: 1,
+    id: '1',
     name: 'John Doe',
     email: 'john@example.com',
     startDate: '2023-01-01',
@@ -27,7 +27,7 @@ export const donors: Donor[] = [
     notes: 'Regular supporter since inception',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Jane Smith',
     email: 'jane@example.com',
     startDate: '2019-06-15',
@@ -41,7 +41,7 @@ export const donors: Donor[] = [
       'Increased donation amount in 2022 due to successful fundraising campaign',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Bob Johnson',
     email: 'bob@example.com',
     startDate: '2022-03-20',
@@ -54,7 +54,7 @@ export const donors: Donor[] = [
     notes: 'New donor who started after our social media campaign',
   },
   {
-    id: 4,
+    id: '4',
     name: 'Alice Brown',
     email: 'alice@example.com',
     startDate: '2018-09-01',
@@ -68,7 +68,7 @@ export const donors: Donor[] = [
       "Has been inactive since moving abroad; we're working on re-engagement",
   },
   {
-    id: 5,
+    id: '5',
     name: 'Mike Davis',
     email: 'mike@example.com',
     startDate: '2023-05-01',
@@ -81,7 +81,7 @@ export const donors: Donor[] = [
     notes: 'Started donating after attending our fundraising event',
   },
   {
-    id: 6,
+    id: '6',
     name: 'Sarah Lee',
     email: 'sarah@example.com',
     startDate: '2017-02-15',
@@ -95,7 +95,7 @@ export const donors: Donor[] = [
       'Increased donation amount in 2023 due to successful fundraising campaign',
   },
   {
-    id: 7,
+    id: '7',
     name: 'Tom Harris',
     email: 'tom@example.com',
     startDate: '2022-07-20',
@@ -108,7 +108,7 @@ export const donors: Donor[] = [
     notes: 'New donor who started after seeing our social media posts',
   },
   {
-    id: 8,
+    id: '8',
     name: 'Emily Chen',
     email: 'emily@example.com',
     startDate: '2019-03-01',
@@ -121,7 +121,7 @@ export const donors: Donor[] = [
     notes: 'Regular supporter who increased donation amount in 2023',
   },
   {
-    id: 9,
+    id: '9',
     name: 'David Kim',
     email: 'david@example.com',
     startDate: '2023-02-15',
@@ -134,7 +134,7 @@ export const donors: Donor[] = [
     notes: 'Started donating after attending our fundraising event',
   },
   {
-    id: 10,
+    id: '10',
     name: 'Lisa Nguyen',
     email: 'lisa@example.com',
     startDate: '2018-04-01',
@@ -148,7 +148,7 @@ export const donors: Donor[] = [
       'Increased donation amount in 2023 due to successful fundraising campaign',
   },
   {
-    id: 11,
+    id: '11',
     name: 'Kevin White',
     email: 'kevin@example.com',
     startDate: '2022-08-20',
@@ -161,7 +161,7 @@ export const donors: Donor[] = [
     notes: 'New donor who started after seeing our social media posts',
   },
   {
-    id: 12,
+    id: '12',
     name: 'Amy Martin',
     email: 'amy@example.com',
     startDate: '2017-05-01',
@@ -174,7 +174,7 @@ export const donors: Donor[] = [
     notes: 'Regular supporter who increased donation amount in 2023',
   },
   {
-    id: 13,
+    id: '13',
     name: 'James Brown',
     email: 'james@example.com',
     startDate: '2023-03-15',
@@ -187,7 +187,7 @@ export const donors: Donor[] = [
     notes: 'Started donating after attending our fundraising event',
   },
   {
-    id: 14,
+    id: '14',
     name: 'Sarah Taylor',
     email: 'sarah@example.com',
     startDate: '2018-07-01',
@@ -201,7 +201,7 @@ export const donors: Donor[] = [
       'Increased donation amount in 2023 due to successful fundraising campaign',
   },
   {
-    id: 15,
+    id: '15',
     name: 'Michael Johnson',
     email: 'michael@example.com',
     startDate: '2022-09-20',
@@ -214,7 +214,7 @@ export const donors: Donor[] = [
     notes: 'New donor who started after seeing our social media posts',
   },
   {
-    id: 16,
+    id: '16',
     name: 'Emma Wilson',
     email: 'emma@example.com',
     startDate: '2017-03-01',
@@ -227,7 +227,7 @@ export const donors: Donor[] = [
     notes: 'Regular supporter who increased donation amount in 2023',
   },
   {
-    id: 17,
+    id: '17',
     name: 'Christopher Lee',
     email: 'christopher@example.com',
     startDate: '2023-04-15',
@@ -240,7 +240,7 @@ export const donors: Donor[] = [
     notes: 'Started donating after attending our fundraising event',
   },
   {
-    id: 18,
+    id: '18',
     name: 'Olivia Martin',
     email: 'olivia@example.com',
     startDate: '2018-06-01',
@@ -254,7 +254,7 @@ export const donors: Donor[] = [
       'Increased donation amount in 2023 due to successful fundraising campaign',
   },
   {
-    id: 19,
+    id: '19',
     name: 'William Davis',
     email: 'william@example.com',
     startDate: '2022-10-20',
@@ -267,7 +267,7 @@ export const donors: Donor[] = [
     notes: 'New donor who started after seeing our social media posts',
   },
   {
-    id: 20,
+    id: '20',
     name: 'Isabella Rodriguez',
     email: 'isabella@example.com',
     startDate: '2017-04-01',
@@ -280,7 +280,7 @@ export const donors: Donor[] = [
     notes: 'Regular supporter who increased donation amount in 2023',
   },
   {
-    id: 21,
+    id: '21',
     name: 'Alexander Thompson',
     email: 'alexander@example.com',
     startDate: '2023-05-15',
@@ -293,7 +293,7 @@ export const donors: Donor[] = [
     notes: 'Started donating after attending our fundraising event',
   },
   {
-    id: 22,
+    id: '22',
     name: 'Sophia Garcia',
     email: 'sophia@example.com',
     startDate: '2018-08-01',
