@@ -27,7 +27,7 @@ const ChildDetails: React.FC<{ params: { childId: string } }> = ({
           <strong>Enrollement Date:</strong> {child.enrollmentDate}
         </p>
         <p>
-          <strong>Adress:</strong> ${child.address}
+          <strong>Adress:</strong> {child.address}
         </p>
         <p>
           <strong>Health Status:</strong> {child.healthStatus}
