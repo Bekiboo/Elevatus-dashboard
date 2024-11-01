@@ -27,10 +27,10 @@ export const Navbar = () => {
         </a>
         <span> | </span>
         <a
-          href="/staff"
-          className={pathname.startsWith('/staff') ? 'underline' : ''}
+          href="/employees"
+          className={pathname.startsWith('/employees') ? 'underline' : ''}
         >
-          Staff
+          Employees
         </a>
       </div>
     </nav>
