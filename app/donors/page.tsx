@@ -26,7 +26,7 @@ const DonorsList: React.FC = () => {
         <tbody>
           {donors.map((donor) => (
             <tr
-              key={donor.name}
+              key={donor.id}
               onClick={() => handleRowClick(donor.id)}
               className="cursor-pointer hover:bg-gray-100"
             >
