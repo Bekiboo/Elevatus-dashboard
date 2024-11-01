@@ -29,15 +29,19 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-8 mb-16">
             <div className="bg-white p-6 rounded-lg shadow-md w-full md:w-64">
               <h2 className="text-xl font-semibold mb-2">Current Donors</h2>
-              <p>{currentDonorsCount}</p>
+              <p>
+                {currentDonorsCount === 0 ? 'Fetching' : currentDonorsCount}
+              </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md w-full md:w-64">
               <h2 className="text-xl font-semibold mb-2">Active Children</h2>
-              <p>{activeChildrenCount}</p>
+              <p>
+                {activeChildrenCount === 0 ? 'Fetching' : activeChildrenCount}
+              </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md w-full md:w-64">
               <h2 className="text-xl font-semibold mb-2">Staff Members</h2>
-              <p>{staffMembersCount}</p>
+              <p>{staffMembersCount === 0 ? 'Fetching' : staffMembersCount}</p>
             </div>
           </div>
           <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
