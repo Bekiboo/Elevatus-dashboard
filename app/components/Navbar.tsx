@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export const Navbar = () => {
@@ -8,30 +9,30 @@ export const Navbar = () => {
   return (
     <nav className="sticky z-50 inset-x-0 flex justify-between bg-gray-800 text-white p-4">
       <div>
-        <a href="/" className={pathname === '/' ? 'underline' : ''}>
+        <Link href="/" className={pathname === '/' ? 'underline' : ''}>
           Home
-        </a>
+        </Link>
         <span> | </span>
-        <a
+        <Link
           href="/donors"
           className={pathname.startsWith('/donors') ? 'underline' : ''}
         >
           Donors
-        </a>
+        </Link>
         <span> | </span>
-        <a
+        <Link
           href="/children"
           className={pathname.startsWith('/children') ? 'underline' : ''}
         >
           Children
-        </a>
+        </Link>
         <span> | </span>
-        <a
+        <Link
           href="/employees"
           className={pathname.startsWith('/employees') ? 'underline' : ''}
         >
           Employees
-        </a>
+        </Link>
       </div>
     </nav>
   )
