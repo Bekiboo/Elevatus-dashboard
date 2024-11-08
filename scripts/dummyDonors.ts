@@ -12,7 +12,7 @@ interface Donor {
   notes?: string
 }
 
-export const donors: Donor[] = [
+export const dummyDonors: Donor[] = [
   {
     id: '1',
     name: 'John Doe',

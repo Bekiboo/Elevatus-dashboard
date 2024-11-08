@@ -1,11 +1,11 @@
 'use client'
+import { use } from 'react'
 
 import { useRouter } from 'next/navigation'
-import { children } from '../children'
+import { children } from '../../../scripts/dummyChildren'
 
-const ChildDetails: React.FC<{ params: { childId: string } }> = ({
-  params,
-}) => {
+const ChildDetails: React.FC<{ params: { childId: string } }> = (props) => {
+  const params = use(props.params)
   const router = useRouter()
 
   const child = children.find((c) => c.id == params.childId)

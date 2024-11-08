@@ -12,7 +12,7 @@ interface Employee {
   specialty: string
 }
 
-export const employees: Employee[] = [
+export const dummyEmployees: Employee[] = [
   {
     id: '1',
     firstName: 'Sarah',

@@ -1,6 +1,6 @@
 'use client'
 
-import { employees } from './employees'
+import { employees } from '../../scripts/dummyEmployees'
 import { useRouter } from 'next/navigation'
 
 const EmplemployeesList: React.FC = () => {

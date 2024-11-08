@@ -1,17 +1,25 @@
 'use client'
+import { use } from 'react'
 
-import { useRouter } from 'next/navigation'
-import { donors } from '../donors'
-
-const DonorDetails: React.FC<{ params: { donorId: string } }> = ({
-  params,
-}) => {
-  const router = useRouter()
+const DonorDetails: React.FC<{ params: { donorId: string } }> = (props) => {
+  const params = use(props.params)
 
   const donor = donors.find((d) => d.id == params.donorId)
   console.log(params.donorId)
 
-  if (!donor) return <div>Donor not found</div>
+  if (!donor)
+    return (
+      <>
+        <div>Donor not found</div>
+
+        <a
+          href="/donors"
+          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          Back to Donor List
+        </a>
+      </>
+    )
 
   return (
     <div className="container mx-auto mt-8">
@@ -47,12 +55,12 @@ const DonorDetails: React.FC<{ params: { donorId: string } }> = ({
           <strong>Notes:</strong> {donor.notes}
         </p>
       </div>
-      <button
-        onClick={() => router.back()}
+      <a
+        href="/donors"
         className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
       >
         Back to Donor List
-      </button>
+      </a>
     </div>
   )
 }

@@ -13,7 +13,7 @@ interface Child {
   lastCheckupDate?: string
 }
 
-export const children: Child[] = [
+export const dummyChildren: Child[] = [
   {
     id: '1',
     firstName: 'Aina',

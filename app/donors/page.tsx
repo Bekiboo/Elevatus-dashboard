@@ -1,19 +1,26 @@
 'use client'
 
-import { donors } from './donors'
-import { useRouter } from 'next/navigation'
+import { seedDatabase } from '@/scripts/seed'
+
+// import { donors } from '../../scripts/seed.js'
+// import { useRouter } from 'next/navigation'
 
 const DonorsList: React.FC = () => {
-  const router = useRouter()
+  // const router = useRouter()
 
-  const handleRowClick = (donorId: string) => {
-    router.push(`/donors/${donorId}`)
+  // const handleRowClick = (donorId: string) => {
+  //   router.push(`/donors/${donorId}`)
+  // }
+
+  const seedDonors = async () => {
+    await seedDatabase()
   }
 
   return (
     <div className="container mx-auto mt-8">
       <h1 className="text-3xl font-bold mb-6">Donor List</h1>
-      <table className="min-w-full bg-white shadow-md rounded-b-lg overflow-hidden">
+      <button onClick={seedDonors}>Seed Donors</button>
+      {/* <table className="min-w-full bg-white shadow-md rounded-b-lg overflow-hidden">
         <thead className="bg-gray-800 text-white">
           <tr>
             <th className="px-4 py-2">Name</th>
@@ -40,7 +47,7 @@ const DonorsList: React.FC = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   )
 }

@@ -1,11 +1,13 @@
 'use client'
+import { use } from 'react'
 
 import { useRouter } from 'next/navigation'
-import { employees } from '../employees'
+import { employees } from '../../../scripts/dummyEmployees'
 
-const EmployeeDetails: React.FC<{ params: { employeeId: string } }> = ({
-  params,
-}) => {
+const EmployeeDetails: React.FC<{ params: { employeeId: string } }> = (
+  props
+) => {
+  const params = use(props.params)
   const router = useRouter()
 
   const employee = employees.find((c) => c.id == params.employeeId)

@@ -1,6 +1,6 @@
 'use client'
 
-import { children } from './children'
+import { children } from '../../scripts/dummyChildren'
 import { useRouter } from 'next/navigation'
 
 const ChildrenList: React.FC = () => {
