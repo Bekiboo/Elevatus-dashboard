@@ -1,8 +1,21 @@
-import mongoose, { Schema } from 'mongoose'
+import { Schema, model, models } from 'mongoose'
 
-const donorSchema = new Schema(
+export interface Donor {
+  _id: string
+  name: string
+  email: string
+  startDate: Date
+  monthlyDonation: number
+  status: string
+  lastDonationDate: Date
+  totalDonated: number
+  frequency: string
+  paymentMethod: string
+  notes: string
+}
+
+const donorSchema = new Schema<Donor>(
   {
-    id: String,
     name: String,
     email: String,
     startDate: Date,
@@ -17,6 +30,4 @@ const donorSchema = new Schema(
   { timestamps: true }
 )
 
-const Donor = mongoose.models.Donor || mongoose.model('Donor', donorSchema)
-
-export default Donor
+export const Donor = models.Donor || model<Donor>('Donor', donorSchema)

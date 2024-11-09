@@ -1,5 +1,4 @@
 interface Employee {
-  id: string
   firstName: string
   lastName: string
   preferredFullName: string
@@ -14,7 +13,6 @@ interface Employee {
 
 export const dummyEmployees: Employee[] = [
   {
-    id: '1',
     firstName: 'Sarah',
     lastName: 'Taylor',
     preferredFullName: 'Sarah Taylor',
@@ -27,7 +25,6 @@ export const dummyEmployees: Employee[] = [
     specialty: 'Child Development',
   },
   {
-    id: '2',
     firstName: 'Michael',
     lastName: 'Brown',
     preferredFullName: 'Michael Brown',
@@ -40,7 +37,6 @@ export const dummyEmployees: Employee[] = [
     specialty: 'Pedagogy',
   },
   {
-    id: '3',
     firstName: 'Emily',
     lastName: 'Chen',
     preferredFullName: 'Emily Chen',
@@ -53,7 +49,6 @@ export const dummyEmployees: Employee[] = [
     specialty: 'Child Nutrition',
   },
   {
-    id: '4',
     firstName: 'David',
     lastName: 'Lee',
     preferredFullName: 'David Lee',
@@ -66,7 +61,6 @@ export const dummyEmployees: Employee[] = [
     specialty: 'Child Psychology',
   },
   {
-    id: '5',
     firstName: 'Lisa',
     lastName: 'Nguyen',
     preferredFullName: 'Lisa Nguyen',
@@ -79,7 +73,6 @@ export const dummyEmployees: Employee[] = [
     specialty: 'Non-Profit Management',
   },
   {
-    id: '6',
     firstName: 'James',
     lastName: 'Patel',
     preferredFullName: 'James Patel',

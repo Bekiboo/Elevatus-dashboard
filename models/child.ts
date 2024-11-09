@@ -2,17 +2,17 @@ import mongoose, { Schema } from 'mongoose'
 
 const childSchema = new Schema(
   {
-    id: String,
-    name: String,
-    email: String,
-    startDate: Date,
-    monthlyDonation: Number,
-    status: String,
-    lastDonationDate: Date,
-    totalDonated: Number,
-    frequency: String,
-    paymentMethod: String,
-    notes: String,
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    birthdate: { type: Date, required: true },
+    enrollmentDate: { type: Date, required: true },
+    gradeLevel: { type: Number, required: true },
+    healthStatus: { type: String, required: true },
+    guardianName: { type: String, required: true },
+    guardianContact: { type: String, required: true },
+    address: { type: String, required: true },
+    comments: { type: String },
+    lastCheckupDate: { type: Date },
   },
   { timestamps: true }
 )

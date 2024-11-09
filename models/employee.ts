@@ -2,17 +2,16 @@ import mongoose, { Schema } from 'mongoose'
 
 const employeeSchema = new Schema(
   {
-    id: String,
-    name: String,
-    email: String,
-    startDate: Date,
-    monthlyDonation: Number,
-    status: String,
-    lastDonationDate: Date,
-    totalDonated: Number,
-    frequency: String,
-    paymentMethod: String,
-    notes: String,
+    firstName: String,
+    lastName: String,
+    preferredFullName: String,
+    jobTitle: String,
+    employeeCode: String,
+    emailAddress: String,
+    phoneNumber: String,
+    region: String,
+    yearsOfService: Number,
+    specialty: String,
   },
   { timestamps: true }
 )
