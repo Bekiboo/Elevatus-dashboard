@@ -57,9 +57,13 @@ const ChildrenList: React.FC = () => {
             >
               <td className="border px-4 py-2">{child.firstName}</td>
               <td className="border px-4 py-2">{child.healthStatus}</td>
-              {/* <td className="border px-4 py-2">{child.enrollmentDate}</td> */}
+              <td className="border px-4 py-2">
+                {new Date(child.enrollmentDate).toLocaleDateString()}
+              </td>
               <td className="border px-4 py-2">{child.gradeLevel}</td>
-              {/* <td className="border px-4 py-2">{child.lastCheckupDate}</td> */}
+              <td className="border px-4 py-2">
+                {new Date(child.lastCheckupDate).toLocaleDateString()}
+              </td>
             </tr>
           ))}
         </tbody>

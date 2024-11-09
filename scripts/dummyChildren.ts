@@ -1,8 +1,8 @@
 interface Child {
   firstName: string
   lastName: string
-  birthdate: Date
-  enrollmentDate: Date
+  birthdate: string
+  enrollmentDate: string
   gradeLevel: number
   healthStatus: string
   guardianName: string
@@ -16,8 +16,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Aina',
     lastName: 'Rakoto',
-    birthdate: new Date('2015-04-10'),
-    enrollmentDate: new Date('2022-09-05'),
+    birthdate: '2015-04-10',
+    enrollmentDate: '2022-09-05',
     gradeLevel: 3,
     healthStatus: 'Good',
     guardianName: 'Ravelo Andriana',
@@ -29,8 +29,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Tiana',
     lastName: 'Rasolofoniaina',
-    birthdate: new Date('2014-11-25'),
-    enrollmentDate: new Date('2022-09-05'),
+    birthdate: '2014-11-25',
+    enrollmentDate: '2022-09-05',
     gradeLevel: 4,
     healthStatus: 'Underweight',
     guardianName: 'Vola Rajo',
@@ -42,8 +42,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Miora',
     lastName: 'Andriamihaja',
-    birthdate: new Date('2016-01-18'),
-    enrollmentDate: new Date('2023-01-12'),
+    birthdate: '2016-01-18',
+    enrollmentDate: '2023-01-12',
     gradeLevel: 2,
     healthStatus: 'Moderate',
     guardianName: 'Solofo Rasoanaivo',
@@ -55,8 +55,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Rivo',
     lastName: 'Andriamanga',
-    birthdate: new Date('2013-05-15'),
-    enrollmentDate: new Date('2021-09-05'),
+    birthdate: '2013-05-15',
+    enrollmentDate: '2021-09-05',
     gradeLevel: 5,
     healthStatus: 'Good',
     guardianName: 'Henintsoa Andriamanga',
@@ -68,8 +68,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Soa',
     lastName: 'Rafalimanana',
-    birthdate: new Date('2017-03-10'),
-    enrollmentDate: new Date('2023-03-15'),
+    birthdate: '2017-03-10',
+    enrollmentDate: '2023-03-15',
     gradeLevel: 1,
     healthStatus: 'Good',
     guardianName: 'Feno Rafalimanana',
@@ -81,8 +81,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Faly',
     lastName: 'Andriatsiferana',
-    birthdate: new Date('2012-09-22'),
-    enrollmentDate: new Date('2021-10-05'),
+    birthdate: '2012-09-22',
+    enrollmentDate: '2021-10-05',
     gradeLevel: 6,
     healthStatus: 'Moderate',
     guardianName: 'Rado Andriatsiferana',
@@ -94,8 +94,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Lalao',
     lastName: 'Rafidison',
-    birthdate: new Date('2016-11-20'),
-    enrollmentDate: new Date('2023-01-22'),
+    birthdate: '2016-11-20',
+    enrollmentDate: '2023-01-22',
     gradeLevel: 2,
     healthStatus: 'Good',
     guardianName: 'Tiana Rafidison',
@@ -107,8 +107,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Fara',
     lastName: 'Rabenarivo',
-    birthdate: new Date('2015-07-05'),
-    enrollmentDate: new Date('2022-09-15'),
+    birthdate: '2015-07-05',
+    enrollmentDate: '2022-09-15',
     gradeLevel: 3,
     healthStatus: 'Underweight',
     guardianName: 'Zo Rabenarivo',
@@ -120,8 +120,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Hery',
     lastName: 'Andrianjafy',
-    birthdate: new Date('2014-02-14'),
-    enrollmentDate: new Date('2021-04-18'),
+    birthdate: '2014-02-14',
+    enrollmentDate: '2021-04-18',
     gradeLevel: 4,
     healthStatus: 'Good',
     guardianName: 'Hanitra Andrianjafy',
@@ -133,8 +133,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Soamiely',
     lastName: 'Randriambololona',
-    birthdate: new Date('2013-12-29'),
-    enrollmentDate: new Date('2021-09-10'),
+    birthdate: '2013-12-29',
+    enrollmentDate: '2021-09-10',
     gradeLevel: 5,
     healthStatus: 'Good',
     guardianName: 'Faniry Randriambololona',
@@ -147,8 +147,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Tsiry',
     lastName: 'Rasoanaivo',
-    birthdate: new Date('2017-08-16'),
-    enrollmentDate: new Date('2023-03-10'),
+    birthdate: '2017-08-16',
+    enrollmentDate: '2023-03-10',
     gradeLevel: 1,
     healthStatus: 'Good',
     guardianName: 'Faly Rasoanaivo',
@@ -160,8 +160,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Haja',
     lastName: 'Raharison',
-    birthdate: new Date('2015-05-11'),
-    enrollmentDate: new Date('2022-09-10'),
+    birthdate: '2015-05-11',
+    enrollmentDate: '2022-09-10',
     gradeLevel: 3,
     healthStatus: 'Moderate',
     guardianName: 'Lala Raharison',
@@ -173,8 +173,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Vonjy',
     lastName: 'Randria',
-    birthdate: new Date('2013-10-22'),
-    enrollmentDate: new Date('2021-09-15'),
+    birthdate: '2013-10-22',
+    enrollmentDate: '2021-09-15',
     gradeLevel: 5,
     healthStatus: 'Good',
     guardianName: 'Soa Randria',
@@ -186,8 +186,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Tahina',
     lastName: 'Ravelomanana',
-    birthdate: new Date('2016-01-30'),
-    enrollmentDate: new Date('2023-01-15'),
+    birthdate: '2016-01-30',
+    enrollmentDate: '2023-01-15',
     gradeLevel: 2,
     healthStatus: 'Underweight',
     guardianName: 'Hery Ravelomanana',
@@ -199,8 +199,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Mamy',
     lastName: 'Rafeno',
-    birthdate: new Date('2014-04-25'),
-    enrollmentDate: new Date('2022-08-20'),
+    birthdate: '2014-04-25',
+    enrollmentDate: '2022-08-20',
     gradeLevel: 4,
     healthStatus: 'Good',
     guardianName: 'Zara Rafeno',
@@ -212,8 +212,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Fetra',
     lastName: 'Andrianirina',
-    birthdate: new Date('2015-09-14'),
-    enrollmentDate: new Date('2022-10-05'),
+    birthdate: '2015-09-14',
+    enrollmentDate: '2022-10-05',
     gradeLevel: 3,
     healthStatus: 'Moderate',
     guardianName: 'Bema Andrianirina',
@@ -225,8 +225,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Ketaka',
     lastName: 'Rasolonirina',
-    birthdate: new Date('2017-11-01'),
-    enrollmentDate: new Date('2023-04-15'),
+    birthdate: '2017-11-01',
+    enrollmentDate: '2023-04-15',
     gradeLevel: 1,
     healthStatus: 'Good',
     guardianName: 'Sariaka Rasolonirina',
@@ -238,8 +238,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Bodo',
     lastName: 'Razanamalala',
-    birthdate: new Date('2016-06-25'),
-    enrollmentDate: new Date('2022-09-30'),
+    birthdate: '2016-06-25',
+    enrollmentDate: '2022-09-30',
     gradeLevel: 2,
     healthStatus: 'Underweight',
     guardianName: 'Fara Razanamalala',
@@ -251,8 +251,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Zo',
     lastName: 'Ramaroson',
-    birthdate: new Date('2014-03-12'),
-    enrollmentDate: new Date('2021-09-01'),
+    birthdate: '2014-03-12',
+    enrollmentDate: '2021-09-01',
     gradeLevel: 4,
     healthStatus: 'Good',
     guardianName: 'Hanta Ramaroson',
@@ -264,8 +264,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Jean',
     lastName: 'Rafenoarivelo',
-    birthdate: new Date('2013-07-04'),
-    enrollmentDate: new Date('2021-08-12'),
+    birthdate: '2013-07-04',
+    enrollmentDate: '2021-08-12',
     gradeLevel: 5,
     healthStatus: 'Moderate',
     guardianName: 'Norosoa Rafenoarivelo',
@@ -277,8 +277,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Fara',
     lastName: 'Rajaonarivelo',
-    birthdate: new Date('2016-12-20'),
-    enrollmentDate: new Date('2023-03-05'),
+    birthdate: '2016-12-20',
+    enrollmentDate: '2023-03-05',
     gradeLevel: 2,
     healthStatus: 'Good',
     guardianName: 'Lanto Rajaonarivelo',
@@ -290,8 +290,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Lova',
     lastName: 'Ratsimbazafy',
-    birthdate: new Date('2014-09-02'),
-    enrollmentDate: new Date('2022-11-01'),
+    birthdate: '2014-09-02',
+    enrollmentDate: '2022-11-01',
     gradeLevel: 4,
     healthStatus: 'Moderate',
     guardianName: 'Mamy Ratsimbazafy',
@@ -303,8 +303,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Faniry',
     lastName: 'Razafindrabe',
-    birthdate: new Date('2017-04-18'),
-    enrollmentDate: new Date('2023-02-20'),
+    birthdate: '2017-04-18',
+    enrollmentDate: '2023-02-20',
     gradeLevel: 1,
     healthStatus: 'Underweight',
     guardianName: 'Tiana Razafindrabe',
@@ -316,8 +316,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Nirina',
     lastName: 'Razanabo',
-    birthdate: new Date('2015-02-15'),
-    enrollmentDate: new Date('2022-08-10'),
+    birthdate: '2015-02-15',
+    enrollmentDate: '2022-08-10',
     gradeLevel: 3,
     healthStatus: 'Good',
     guardianName: 'Tsiry Razanabo',
@@ -329,8 +329,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Mahery',
     lastName: 'Randriamampionona',
-    birthdate: new Date('2013-10-30'),
-    enrollmentDate: new Date('2021-10-25'),
+    birthdate: '2013-10-30',
+    enrollmentDate: '2021-10-25',
     gradeLevel: 5,
     healthStatus: 'Moderate',
     guardianName: 'Arisoa Randriamampionona',
@@ -342,8 +342,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Ihaja',
     lastName: 'Rasolondraibe',
-    birthdate: new Date('2015-11-14'),
-    enrollmentDate: new Date('2022-07-30'),
+    birthdate: '2015-11-14',
+    enrollmentDate: '2022-07-30',
     gradeLevel: 3,
     healthStatus: 'Good',
     guardianName: 'Ny Rado Rasolondraibe',
@@ -355,8 +355,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Santatra',
     lastName: 'Razanamalala',
-    birthdate: new Date('2017-07-12'),
-    enrollmentDate: new Date('2023-05-10'),
+    birthdate: '2017-07-12',
+    enrollmentDate: '2023-05-10',
     gradeLevel: 1,
     healthStatus: 'Underweight',
     guardianName: 'Lova Razanamalala',
@@ -368,8 +368,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Soa',
     lastName: 'Rafaralahy',
-    birthdate: new Date('2014-06-08'),
-    enrollmentDate: new Date('2022-06-15'),
+    birthdate: '2014-06-08',
+    enrollmentDate: '2022-06-15',
     gradeLevel: 4,
     healthStatus: 'Good',
     guardianName: 'Zo Rafaralahy',
@@ -381,8 +381,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Hanitra',
     lastName: 'Rajoelina',
-    birthdate: new Date('2015-05-03'),
-    enrollmentDate: new Date('2022-08-08'),
+    birthdate: '2015-05-03',
+    enrollmentDate: '2022-08-08',
     gradeLevel: 3,
     healthStatus: 'Moderate',
     guardianName: 'Tina Rajoelina',
@@ -394,8 +394,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Lahatra',
     lastName: 'Randriamanana',
-    birthdate: new Date('2013-03-19'),
-    enrollmentDate: new Date('2021-09-22'),
+    birthdate: '2013-03-19',
+    enrollmentDate: '2021-09-22',
     gradeLevel: 5,
     healthStatus: 'Good',
     guardianName: 'Faly Randriamanana',
@@ -407,8 +407,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Tahina',
     lastName: 'Andriamasinoro',
-    birthdate: new Date('2016-11-07'),
-    enrollmentDate: new Date('2023-03-12'),
+    birthdate: '2016-11-07',
+    enrollmentDate: '2023-03-12',
     gradeLevel: 2,
     healthStatus: 'Moderate',
     guardianName: 'Aina Andriamasinoro',
@@ -420,8 +420,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Zo',
     lastName: 'Razanajatovo',
-    birthdate: new Date('2015-01-25'),
-    enrollmentDate: new Date('2022-05-18'),
+    birthdate: '2015-01-25',
+    enrollmentDate: '2022-05-18',
     gradeLevel: 3,
     healthStatus: 'Good',
     guardianName: 'Hery Razanajatovo',
@@ -433,8 +433,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Samy',
     lastName: 'Rajoarihaona',
-    birthdate: new Date('2014-12-03'),
-    enrollmentDate: new Date('2022-11-03'),
+    birthdate: '2014-12-03',
+    enrollmentDate: '2022-11-03',
     gradeLevel: 4,
     healthStatus: 'Good',
     guardianName: 'Noeline Rajoarihaona',
@@ -446,8 +446,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Nomena',
     lastName: 'Rakotoarivony',
-    birthdate: new Date('2017-09-15'),
-    enrollmentDate: new Date('2023-06-22'),
+    birthdate: '2017-09-15',
+    enrollmentDate: '2023-06-22',
     gradeLevel: 1,
     healthStatus: 'Underweight',
     guardianName: 'Tolotra Rakotoarivony',
@@ -459,8 +459,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Ny Hasina',
     lastName: 'Andriamanjato',
-    birthdate: new Date('2013-08-11'),
-    enrollmentDate: new Date('2021-12-05'),
+    birthdate: '2013-08-11',
+    enrollmentDate: '2021-12-05',
     gradeLevel: 5,
     healthStatus: 'Moderate',
     guardianName: 'Lalasoa Andriamanjato',
@@ -472,8 +472,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Volana',
     lastName: 'Rakotondrazaka',
-    birthdate: new Date('2015-02-18'),
-    enrollmentDate: new Date('2022-04-15'),
+    birthdate: '2015-02-18',
+    enrollmentDate: '2022-04-15',
     gradeLevel: 3,
     healthStatus: 'Good',
     guardianName: 'Rina Rakotondrazaka',
@@ -485,8 +485,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Toky',
     lastName: 'Rabenjamina',
-    birthdate: new Date('2016-03-29'),
-    enrollmentDate: new Date('2023-01-15'),
+    birthdate: '2016-03-29',
+    enrollmentDate: '2023-01-15',
     gradeLevel: 2,
     healthStatus: 'Good',
     guardianName: 'Mbolatiana Rabenjamina',
@@ -498,8 +498,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Rindra',
     lastName: 'Andriamampianina',
-    birthdate: new Date('2014-11-05'),
-    enrollmentDate: new Date('2022-10-20'),
+    birthdate: '2014-11-05',
+    enrollmentDate: '2022-10-20',
     gradeLevel: 4,
     healthStatus: 'Moderate',
     guardianName: 'Tefy Andriamampianina',
@@ -511,8 +511,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Tahiry',
     lastName: 'Razanamparany',
-    birthdate: new Date('2013-06-21'),
-    enrollmentDate: new Date('2021-08-15'),
+    birthdate: '2013-06-21',
+    enrollmentDate: '2021-08-15',
     gradeLevel: 5,
     healthStatus: 'Good',
     guardianName: 'Sitraka Razanamparany',
@@ -524,8 +524,8 @@ export const dummyChildren: Child[] = [
   {
     firstName: 'Felana',
     lastName: 'Ravalomanana',
-    birthdate: new Date('2017-01-07'),
-    enrollmentDate: new Date('2023-07-15'),
+    birthdate: '2017-01-07',
+    enrollmentDate: '2023-07-15',
     gradeLevel: 1,
     healthStatus: 'Underweight',
     guardianName: 'Fanilo Ravalomanana',

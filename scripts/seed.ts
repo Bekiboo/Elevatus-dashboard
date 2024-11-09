@@ -1,11 +1,11 @@
 import connectMongoDB from '@/libs/mongodb'
 import mongoose from 'mongoose'
-import Donor from '../models/donor'
-import Child from '../models/child'
-import Employee from '../models/employee'
 import { dummyDonors } from './dummyDonors'
 import { dummyChildren } from './dummyChildren'
 import { dummyEmployees } from './dummyEmployees'
+import { Employee } from '@/models/employee'
+import { Child } from '@/models/child'
+import { Donor } from '@/models/donor'
 
 export async function seedDatabase() {
   await connectMongoDB()

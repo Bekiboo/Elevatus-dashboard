@@ -57,18 +57,20 @@ const ChildDetails = () => {
         <p>
           <strong>Grade Level:</strong> {child.gradeLevel}
         </p>
-        {/* <p>
-          <strong>Enrollement Date:</strong> {child.enrollmentDate}
-        </p> */}
+        <p>
+          <strong>Enrollement Date:</strong>
+          {new Date(child.enrollmentDate).toLocaleDateString()}
+        </p>
         <p>
           <strong>Adress:</strong> {child.address}
         </p>
         <p>
           <strong>Health Status:</strong> {child.healthStatus}
         </p>
-        {/* <p>
-          <strong>Birth Date:</strong> {child.birthdate}
-        </p> */}
+        <p>
+          <strong>Birth Date:</strong>
+          {new Date(child.birthdate).toLocaleDateString()}
+        </p>
         <p>
           <strong>Guardian Contact:</strong>
           {child.guardianContact}
@@ -76,9 +78,10 @@ const ChildDetails = () => {
         <p>
           <strong>Guardian Name:</strong> {child.guardianName}
         </p>
-        {/* <p>
-          <strong>Last Checkup Update:</strong> {child.lastCheckupDate}
-        </p> */}
+        <p>
+          <strong>Last Checkup Update:</strong>
+          {new Date(child.lastCheckupDate).toLocaleDateString()}
+        </p>
         <p>
           <strong>Comments:</strong> {child.comments}
         </p>
