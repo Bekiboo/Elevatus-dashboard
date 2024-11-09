@@ -1,24 +1,24 @@
 import connectMongoDB from '@/libs/mongodb'
-import Topic from '@/models/topic'
+import { Donor } from '@/models/donor'
 import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
   const { title, description } = await request.json()
   await connectMongoDB()
-  await Topic.create({ title, description })
-  return NextResponse.json({ message: 'Topic created' }, { status: 201 })
+  await Donor.create({ title, description })
+  return NextResponse.json({ message: 'Donor created' }, { status: 201 })
 }
 
 export async function GET() {
   await connectMongoDB()
-  const topics = await Topic.find()
-  return NextResponse.json(topics)
+  const donors = await Donor.find()
+  return NextResponse.json(donors)
 }
 
 export async function DELETE(request: Request) {
   const url = new URL(request.url)
   const id = url.searchParams.get('id')
   await connectMongoDB()
-  await Topic.findByIdAndDelete(id)
-  return NextResponse.json({ message: 'Topic deleted' }, { status: 200 })
+  await Donor.findByIdAndDelete(id)
+  return NextResponse.json({ message: 'Donor deleted' }, { status: 200 })
 }

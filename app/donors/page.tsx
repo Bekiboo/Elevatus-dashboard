@@ -1,26 +1,44 @@
 'use client'
 
-import { seedDatabase } from '@/scripts/seed'
+import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { Donor } from '@/models/donor'
 
-// import { donors } from '../../scripts/seed.js'
-// import { useRouter } from 'next/navigation'
+const getDonors = async () => {
+  try {
+    const response = await fetch('/api/donors', {
+      cache: 'no-store',
+    })
+    const data = await response.json()
 
-const DonorsList: React.FC = () => {
-  // const router = useRouter()
+    if (!response.ok) {
+      throw new Error(data.message)
+    }
 
-  // const handleRowClick = (donorId: string) => {
-  //   router.push(`/donors/${donorId}`)
-  // }
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
 
-  const seedDonors = async () => {
-    await seedDatabase()
+export default function DonorsList() {
+  const [donors, setDonors] = useState<Donor[]>([])
+  useEffect(() => {
+    getDonors().then((data) => {
+      setDonors(data)
+    })
+  }, [])
+
+  const router = useRouter()
+
+  const handleRowClick = (donorId: string) => {
+    router.push(`/donors/${donorId}`)
   }
 
   return (
     <div className="container mx-auto mt-8">
       <h1 className="text-3xl font-bold mb-6">Donor List</h1>
-      <button onClick={seedDonors}>Seed Donors</button>
-      {/* <table className="min-w-full bg-white shadow-md rounded-b-lg overflow-hidden">
+      <table className="min-w-full bg-white shadow-md rounded-b-lg overflow-hidden">
         <thead className="bg-gray-800 text-white">
           <tr>
             <th className="px-4 py-2">Name</th>
@@ -33,13 +51,15 @@ const DonorsList: React.FC = () => {
         <tbody>
           {donors.map((donor) => (
             <tr
-              key={donor.id}
-              onClick={() => handleRowClick(donor.id)}
+              key={donor._id}
+              onClick={() => handleRowClick(donor._id)}
               className="cursor-pointer hover:bg-gray-100"
             >
               <td className="border px-4 py-2">{donor.name}</td>
               <td className="border px-4 py-2">{donor.email}</td>
-              <td className="border px-4 py-2">{donor.startDate}</td>
+              <td className="border px-4 py-2">
+                {new Date(donor.startDate).toLocaleDateString()}
+              </td>
               <td className="border px-4 py-2">
                 ${donor.monthlyDonation.toFixed(2)}
               </td>
@@ -47,9 +67,7 @@ const DonorsList: React.FC = () => {
             </tr>
           ))}
         </tbody>
-      </table> */}
+      </table>
     </div>
   )
 }
-
-export default DonorsList

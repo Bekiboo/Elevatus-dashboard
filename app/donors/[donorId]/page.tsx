@@ -1,23 +1,49 @@
 'use client'
-import { use } from 'react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { Donor } from '@/models/donor'
+import { useParams } from 'next/navigation'
 
-const DonorDetails: React.FC<{ params: { donorId: string } }> = (props) => {
-  const params = use(props.params)
+const getDonor = async (donorId: string) => {
+  try {
+    const response = await fetch(`/api/donors/${donorId}`, {
+      cache: 'no-store',
+    })
+    const data = await response.json()
 
-  const donor = donors.find((d) => d.id == params.donorId)
-  console.log(params.donorId)
+    if (!response.ok) {
+      throw new Error(data.message)
+    }
+
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const DonorDetails = () => {
+  const params = useParams()
+  const donorId = params.donorId as string
+
+  const [donor, setDonor] = useState<Donor | null>(null)
+
+  useEffect(() => {
+    getDonor(donorId).then((data) => {
+      setDonor(data)
+    })
+  }, [donorId])
 
   if (!donor)
     return (
       <>
         <div>Donor not found</div>
 
-        <a
+        <Link
           href="/donors"
           className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
         >
           Back to Donor List
-        </a>
+        </Link>
       </>
     )
 
@@ -30,7 +56,8 @@ const DonorDetails: React.FC<{ params: { donorId: string } }> = (props) => {
           <strong>Email:</strong> {donor.email}
         </p>
         <p>
-          <strong>Start Date:</strong> {donor.startDate}
+          <strong>Start Date:</strong>
+          {new Date(donor.startDate).toLocaleDateString()}
         </p>
         <p>
           <strong>Monthly Donation:</strong> ${donor.monthlyDonation.toFixed(2)}
@@ -39,7 +66,8 @@ const DonorDetails: React.FC<{ params: { donorId: string } }> = (props) => {
           <strong>Status:</strong> {donor.status}
         </p>
         <p>
-          <strong>Last Donated:</strong> {donor.lastDonationDate}
+          <strong>Last Donated:</strong>
+          {new Date(donor.lastDonationDate).toLocaleDateString()}
         </p>
         <p>
           <strong>Total Donated:</strong> $
@@ -55,12 +83,12 @@ const DonorDetails: React.FC<{ params: { donorId: string } }> = (props) => {
           <strong>Notes:</strong> {donor.notes}
         </p>
       </div>
-      <a
+      <Link
         href="/donors"
         className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
       >
         Back to Donor List
-      </a>
+      </Link>
     </div>
   )
 }
