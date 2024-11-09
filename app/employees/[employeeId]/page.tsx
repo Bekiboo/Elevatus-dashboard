@@ -80,10 +80,10 @@ const EmployeeDetails = () => {
         </p>
       </div>
       <Link
-        href="/donors"
+        href="/employees"
         className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
       >
-        Back to Donor List
+        Back to Employees List
       </Link>
     </div>
   )

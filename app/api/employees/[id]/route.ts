@@ -1,5 +1,5 @@
 import connectMongoDB from '@/libs/mongodb'
-import { Donor } from '@/models/donor'
+import { Employee } from '@/models/employee'
 import { NextResponse } from 'next/server'
 
 export async function PUT(
@@ -10,8 +10,8 @@ export async function PUT(
   const { id } = params
   const { newTitle: title, newDescription: description } = await request.json()
   await connectMongoDB()
-  await Donor.findByIdAndUpdate(id, { title, description })
-  return NextResponse.json({ message: 'Donor updated' }, { status: 200 })
+  await Employee.findByIdAndUpdate(id, { title, description })
+  return NextResponse.json({ message: 'Employee updated' }, { status: 200 })
 }
 
 export async function GET(
@@ -21,6 +21,6 @@ export async function GET(
   const params = await props.params
   const { id } = params
   await connectMongoDB()
-  const donor = await Donor.findOne({ _id: id })
-  return NextResponse.json(donor, { status: 200 })
+  const employee = await Employee.findOne({ _id: id })
+  return NextResponse.json(employee, { status: 200 })
 }

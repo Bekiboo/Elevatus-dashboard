@@ -39,10 +39,10 @@ const ChildDetails = () => {
         <div>Child not found</div>
 
         <Link
-          href="/childs"
+          href="/children"
           className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
         >
-          Back to Child List
+          Back to Children List
         </Link>
       </>
     )
@@ -84,10 +84,10 @@ const ChildDetails = () => {
         </p>
       </div>
       <Link
-        href="/donors"
+        href="/children"
         className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
       >
-        Back to Donor List
+        Back to Children List
       </Link>
     </div>
   )
