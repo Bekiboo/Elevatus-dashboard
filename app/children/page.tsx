@@ -1,9 +1,34 @@
 'use client'
 
-import { children } from '../../scripts/dummyChildren'
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
-const ChildrenList: React.FC = () => {
+const getChildren = async () => {
+  try {
+    const response = await fetch('/api/children', {
+      cache: 'no-store',
+    })
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.message)
+    }
+
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export default function ChildrenList() {
+  const [children, setChildren] = useState([])
+  useEffect(() => {
+    getChildren().then((data) => {
+      console.log(data)
+      setChildren(data)
+    })
+  }, [])
+
   const router = useRouter()
 
   const handleRowClick = (childId: string) => {
@@ -42,5 +67,3 @@ const ChildrenList: React.FC = () => {
     </div>
   )
 }
-
-export default ChildrenList

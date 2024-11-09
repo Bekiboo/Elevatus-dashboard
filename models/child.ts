@@ -1,6 +1,21 @@
-import mongoose, { Schema } from 'mongoose'
+import { Schema, model, models } from 'mongoose'
 
-const childSchema = new Schema(
+export interface Child {
+  _id: string
+  firstName: string
+  lastName: string
+  birthdate: Date
+  enrollmentDate: Date
+  gradeLevel: number
+  healthStatus: string
+  guardianName: string
+  guardianContact: string
+  address: string
+  comments: string
+  lastCheckupDate: Date
+}
+
+const childSchema = new Schema<Child>(
   {
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
@@ -17,6 +32,4 @@ const childSchema = new Schema(
   { timestamps: true }
 )
 
-const Child = mongoose.models.Child || mongoose.model('Child', childSchema)
-
-export default Child
+export const Child = models.Child || model<Child>('Child', childSchema)

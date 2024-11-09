@@ -1,6 +1,20 @@
-import mongoose, { Schema } from 'mongoose'
+import { Schema, model, models } from 'mongoose'
 
-const employeeSchema = new Schema(
+export interface Employee {
+  _id: string
+  firstName: string
+  lastName: string
+  preferredFullName: string
+  jobTitle: string
+  employeeCode: string
+  emailAddress: string
+  phoneNumber: string
+  region: string
+  yearsOfService: number
+  specialty: string
+}
+
+const employeeSchema = new Schema<Employee>(
   {
     firstName: String,
     lastName: String,
@@ -16,7 +30,5 @@ const employeeSchema = new Schema(
   { timestamps: true }
 )
 
-const Employee =
-  mongoose.models.Employee || mongoose.model('Employee', employeeSchema)
-
-export default Employee
+export const Employee =
+  models.Employee || model<Employee>('Employee', employeeSchema)
