@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { Child } from '@/models/child'
 
 const getChildren = async () => {
   try {
@@ -20,11 +21,10 @@ const getChildren = async () => {
   }
 }
 
-export default function ChildrenList() {
-  const [children, setChildren] = useState([])
+const ChildrenList: React.FC = () => {
+  const [children, setChildren] = useState<Child[]>([])
   useEffect(() => {
     getChildren().then((data) => {
-      console.log(data)
       setChildren(data)
     })
   }, [])
@@ -51,15 +51,15 @@ export default function ChildrenList() {
         <tbody>
           {children.map((child) => (
             <tr
-              key={child.id}
-              onClick={() => handleRowClick(child.id)}
+              key={child._id}
+              onClick={() => handleRowClick(child._id)}
               className="cursor-pointer hover:bg-gray-100"
             >
               <td className="border px-4 py-2">{child.firstName}</td>
               <td className="border px-4 py-2">{child.healthStatus}</td>
-              <td className="border px-4 py-2">{child.enrollmentDate}</td>
+              {/* <td className="border px-4 py-2">{child.enrollmentDate}</td> */}
               <td className="border px-4 py-2">{child.gradeLevel}</td>
-              <td className="border px-4 py-2">{child.lastCheckupDate}</td>
+              {/* <td className="border px-4 py-2">{child.lastCheckupDate}</td> */}
             </tr>
           ))}
         </tbody>
@@ -67,3 +67,5 @@ export default function ChildrenList() {
     </div>
   )
 }
+
+export default ChildrenList

@@ -1,19 +1,51 @@
 'use client'
-import { use } from 'react'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { Employee } from '@/models/employee'
+import { useParams } from 'next/navigation'
 
-import { useRouter } from 'next/navigation'
-import { employees } from '../../../scripts/dummyEmployees'
+const getEmployee = async (employeeId: string) => {
+  try {
+    const response = await fetch(`/api/employees/${employeeId}`, {
+      cache: 'no-store',
+    })
+    const data = await response.json()
 
-const EmployeeDetails: React.FC<{ params: { employeeId: string } }> = (
-  props
-) => {
-  const params = use(props.params)
-  const router = useRouter()
+    if (!response.ok) {
+      throw new Error(data.message)
+    }
 
-  const employee = employees.find((c) => c.id == params.employeeId)
-  console.log(params.employeeId)
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
 
-  if (!employee) return <div>Employee not found</div>
+const EmployeeDetails = () => {
+  const params = useParams()
+  const employeeId = params.employeeId as string
+
+  const [employee, setEmployee] = useState<Employee | null>(null)
+
+  useEffect(() => {
+    getEmployee(employeeId).then((data) => {
+      setEmployee(data)
+    })
+  }, [employeeId])
+
+  if (!employee)
+    return (
+      <>
+        <div>Employee not found</div>
+
+        <Link
+          href="/employees"
+          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          Back to Employee List
+        </Link>
+      </>
+    )
 
   return (
     <div className="container mx-auto mt-8">
@@ -47,12 +79,12 @@ const EmployeeDetails: React.FC<{ params: { employeeId: string } }> = (
           <strong>Specialty:</strong> {employee.specialty}
         </p>
       </div>
-      <button
-        onClick={() => router.back()}
+      <Link
+        href="/donors"
         className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
       >
-        Back to Employee List
-      </button>
+        Back to Donor List
+      </Link>
     </div>
   )
 }

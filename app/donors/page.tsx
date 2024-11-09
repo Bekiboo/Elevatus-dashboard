@@ -21,7 +21,7 @@ const getDonors = async () => {
   }
 }
 
-export default function DonorsList() {
+const DonorsList: React.FC = () => {
   const [donors, setDonors] = useState<Donor[]>([])
   useEffect(() => {
     getDonors().then((data) => {
@@ -71,3 +71,5 @@ export default function DonorsList() {
     </div>
   )
 }
+
+export default DonorsList

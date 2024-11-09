@@ -1,9 +1,34 @@
 'use client'
 
-import { employees } from '../../scripts/dummyEmployees'
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
+import { Employee } from '@/models/employee'
+
+const getEmployees = async () => {
+  try {
+    const response = await fetch('/api/employees', {
+      cache: 'no-store',
+    })
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.message)
+    }
+
+    return data
+  } catch (error) {
+    console.error(error)
+  }
+}
 
 const EmplemployeesList: React.FC = () => {
+  const [employees, setEmployees] = useState<Employee[]>([])
+  useEffect(() => {
+    getEmployees().then((data) => {
+      setEmployees(data)
+    })
+  }, [])
+
   const router = useRouter()
 
   const handleRowClick = (employeeId: string) => {
@@ -25,8 +50,8 @@ const EmplemployeesList: React.FC = () => {
         <tbody>
           {employees.map((employee) => (
             <tr
-              key={employee.id}
-              onClick={() => handleRowClick(employee.id)}
+              key={employee._id}
+              onClick={() => handleRowClick(employee._id)}
               className="cursor-pointer hover:bg-gray-100"
             >
               <td className="border px-4 py-2">{employee.firstName}</td>
@@ -42,16 +67,3 @@ const EmplemployeesList: React.FC = () => {
 }
 
 export default EmplemployeesList
-// {
-//   id: '1',
-//   firstName: 'Sarah',
-//   lastName: 'Taylor',
-//   preferredFullName: 'Sarah Taylor',
-//   jobTitle: 'Program Director',
-//   employeeCode: 'PD001',
-//   emailAddress: 'sarah.taylor@ngo.org',
-//   phoneNumber: '+1-555-123-4567',
-//   region: 'North America',
-//   yearsOfService: 8,
-//   specialty: 'Child Development',
-// },
