@@ -16,9 +16,11 @@ export async function GET() {
 }
 
 export async function DELETE(request: Request) {
+  console.log('DELETE')
   const url = new URL(request.url)
   const id = url.searchParams.get('id')
+  console.log('id', id)
   await connectMongoDB()
-  await Employee.findByIdAndDelete(id)
+  await Employee.findByIdAndDelete({ _id: id })
   return NextResponse.json({ message: 'Employee deleted' }, { status: 200 })
 }
