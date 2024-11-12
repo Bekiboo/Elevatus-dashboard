@@ -3,10 +3,14 @@ import { Employee } from '@/models/employee'
 import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {
-  const { title, description } = await request.json()
+  const req = await request.json()
+  console.log(req)
   await connectMongoDB()
-  await Employee.create({ title, description })
-  return NextResponse.json({ message: 'Employee created' }, { status: 201 })
+  const newEmployee = await Employee.create(req)
+  return NextResponse.json(
+    { message: 'Employee created', newEmployee },
+    { status: 201 }
+  )
 }
 
 export async function GET() {

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Employee } from '@/models/employee'
+import AddEmployeeModal from './AddEmployeeModal'
 
 const getEmployees = async () => {
   try {
@@ -23,6 +24,8 @@ const getEmployees = async () => {
 
 const EmplemployeesList: React.FC = () => {
   const [employees, setEmployees] = useState<Employee[]>([])
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false)
+
   useEffect(() => {
     getEmployees().then((data) => {
       setEmployees(data)
@@ -31,13 +34,32 @@ const EmplemployeesList: React.FC = () => {
 
   const router = useRouter()
 
+  const handleAddEmployee = (
+    newEmployee: Omit<Employee, '_id' | '__v' | 'createdAt' | 'updatedAt'>
+  ) => {
+    setEmployees((prevEmployees) => [...prevEmployees, newEmployee])
+  }
+
   const handleRowClick = (employeeId: string) => {
     router.push(`/employees/${employeeId}`)
   }
 
   return (
     <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-6">Employee List</h1>
+      <div className="flex justify-between mb-6">
+        <h1 className="text-3xl font-bold ">Employee List</h1>
+        <button
+          onClick={() => setIsAddModalOpen(true)}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
+          Add Employee
+        </button>
+        <AddEmployeeModal
+          isOpen={isAddModalOpen}
+          onClose={() => setIsAddModalOpen(false)}
+          onSave={handleAddEmployee}
+        />
+      </div>{' '}
       <table className="min-w-full bg-white shadow-md rounded-b-lg overflow-hidden">
         <thead className="bg-gray-800 text-white">
           <tr>
@@ -51,7 +73,7 @@ const EmplemployeesList: React.FC = () => {
           {employees.map((employee) => (
             <tr
               key={employee._id}
-              onClick={() => handleRowClick(employee._id)}
+              onClick={() => handleRowClick(employee._id!)}
               className="cursor-pointer hover:bg-gray-100"
             >
               <td className="border px-4 py-2">{employee.firstName}</td>

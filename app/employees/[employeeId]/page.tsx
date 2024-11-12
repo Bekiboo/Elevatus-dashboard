@@ -81,22 +81,7 @@ const EmployeeDetails = () => {
           <strong>Job Title:</strong> {employee.jobTitle}
         </p>
         <p>
-          <strong>Preferred Full Name:</strong> {employee.preferredFullName}
-        </p>
-        <p>
-          <strong>Employee Code:</strong> {employee.employeeCode}
-        </p>
-        <p>
           <strong>Email Address:</strong> {employee.emailAddress}
-        </p>
-        <p>
-          <strong>Phone Number:</strong> {employee.phoneNumber}
-        </p>
-        <p>
-          <strong>Region:</strong> {employee.region}
-        </p>
-        <p>
-          <strong>Years of Service:</strong> {employee.yearsOfService}
         </p>
         <p>
           <strong>Specialty:</strong> {employee.specialty}
