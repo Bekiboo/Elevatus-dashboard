@@ -3,29 +3,11 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Employee } from '@/models/employee'
 import { useParams } from 'next/navigation'
-import AreYouSureModal from '@/app/components/AreYouSureModal'
+import EditEmployeeModal from './EditEmployeeModal'
 
 const getEmployee = async (employeeId: string) => {
   try {
     const response = await fetch(`/api/employees/${employeeId}`, {
-      cache: 'no-store',
-    })
-    const data = await response.json()
-
-    if (!response.ok) {
-      throw new Error(data.message)
-    }
-
-    return data
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-const deleteEmployee = async (employeeId: string) => {
-  try {
-    const response = await fetch(`/api/employees?id=${employeeId}`, {
-      method: 'DELETE',
       cache: 'no-store',
     })
     const data = await response.json()
@@ -45,7 +27,7 @@ const EmployeeDetails = () => {
   const employeeId = params.employeeId as string
 
   const [employee, setEmployee] = useState<Employee | null>(null)
-  const [mode, setMode] = useState<'view' | 'edit'>('view')
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
   useEffect(() => {
     getEmployee(employeeId).then((data) => {
@@ -53,10 +35,9 @@ const EmployeeDetails = () => {
     })
   }, [employeeId])
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const handleDelete = async () => {
-    setIsModalOpen(false)
-    await deleteEmployee(employeeId)
+  const handleSave = (updatedEmployee: Employee) => {
+    setEmployee(updatedEmployee)
+    // Optional: Trigger an API call to update the employee data on the server
   }
 
   if (!employee)
@@ -75,37 +56,27 @@ const EmployeeDetails = () => {
 
   return (
     <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-6">Employee Details</h1>
+      <div className="flex justify-between mb-6">
+        <h1 className="text-3xl font-bold ">Employee Details</h1>
+        <Link
+          href="/employees"
+          className=" bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+        >
+          Back to Employees List
+        </Link>
+      </div>
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <div className="flex justify-between mb-4">
+        <header className="flex justify-between mb-4">
           <h2 className="text-xl font-semibold">
             {employee.firstName} {employee.lastName}
           </h2>
           <button
             className="text-gray-400 hover:text-gray-800 text-sm"
-            onClick={() => {
-              setMode(mode === 'view' ? 'edit' : 'view')
-            }}
+            onClick={() => setIsEditModalOpen(true)}
           >
             Edit ✎
           </button>
-          {mode === 'edit' && (
-            <button
-              className="text-red-400 hover:text-red-800 text-sm"
-              onClick={() => {
-                setIsModalOpen(true)
-              }}
-            >
-              Delete ❌
-            </button>
-          )}
-          <AreYouSureModal
-            isOpen={isModalOpen}
-            onConfirm={handleDelete}
-            onCancel={() => setIsModalOpen(false)}
-            message="Are you sure you want to delete this employee?"
-          />
-        </div>
+        </header>
         <p>
           <strong>Job Title:</strong> {employee.jobTitle}
         </p>
@@ -131,12 +102,13 @@ const EmployeeDetails = () => {
           <strong>Specialty:</strong> {employee.specialty}
         </p>
       </div>
-      <Link
-        href="/employees"
-        className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-      >
-        Back to Employees List
-      </Link>
+
+      <EditEmployeeModal
+        isOpen={isEditModalOpen}
+        employee={employee}
+        onClose={() => setIsEditModalOpen(false)}
+        onSave={handleSave}
+      />
     </div>
   )
 }

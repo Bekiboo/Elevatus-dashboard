@@ -8,9 +8,9 @@ export async function PUT(
 ) {
   const params = await props.params
   const { id } = params
-  const { newTitle: title, newDescription: description } = await request.json()
+  const req = await request.json()
   await connectMongoDB()
-  await Employee.findByIdAndUpdate(id, { title, description })
+  await Employee.findByIdAndUpdate(id, req)
   return NextResponse.json({ message: 'Employee updated' }, { status: 200 })
 }
 
