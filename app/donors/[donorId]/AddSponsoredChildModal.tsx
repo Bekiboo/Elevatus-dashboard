@@ -37,6 +37,8 @@ const EditDonorModal = ({
       body: JSON.stringify({ donorId: donor._id, childId: selectedChild }),
     })
 
+    console.log(selectedChild)
+
     if (response.ok) {
       onSave(donor)
       onClose()
