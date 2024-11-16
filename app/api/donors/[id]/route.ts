@@ -21,6 +21,9 @@ export async function GET(
   const params = await props.params
   const { id } = params
   await connectMongoDB()
-  const donor = await Donor.findOne({ _id: id })
+  const donor = await Donor.findById(id).populate(
+    'children',
+    'firstName lastName'
+  )
   return NextResponse.json(donor, { status: 200 })
 }

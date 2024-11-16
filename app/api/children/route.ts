@@ -9,9 +9,13 @@ export async function POST(request: Request) {
   return NextResponse.json({ message: 'Child created' }, { status: 201 })
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   await connectMongoDB()
-  const children = await Child.find()
+  const url = new URL(request.url)
+  const unsponsored = url.searchParams.get('unsponsored')
+
+  const query = unsponsored === 'true' ? { donor: null } : {}
+  const children = await Child.find(query)
   return NextResponse.json(children)
 }
 
