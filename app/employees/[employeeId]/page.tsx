@@ -31,17 +31,17 @@ const EmployeeDetails = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    async function fetchEmployee() {
+    const fetchEmployee = async () => {
       try {
-        await getEmployee(employeeId).then((data) => {
-          setEmployee(data)
-        })
+        const data = await getEmployee(employeeId)
+        setEmployee(data)
       } catch (error) {
         console.error(error)
+      } finally {
+        setLoading(false)
       }
-
-      setLoading(false)
     }
+
     fetchEmployee()
   }, [employeeId])
 
@@ -61,6 +61,7 @@ const EmployeeDetails = () => {
         </Link>
       </div>
       {loading && <p>Loading...</p>}
+      {!loading && !employee && <p>Employee not found</p>}
       {employee && (
         <div className="bg-white p-6 rounded-lg shadow-md">
           <header className="flex justify-between mb-4">
