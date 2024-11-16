@@ -1,6 +1,7 @@
 import { Employee } from '@/models/employee'
 import { useState } from 'react'
 import AreYouSureModal from '@/app/components/AreYouSureModal'
+import { omitFields } from '@/libs/utils'
 
 interface EditEmployeeModalProps {
   isOpen: boolean
@@ -57,17 +58,8 @@ const EditEmployeeModal = ({
   onClose,
   onSave,
 }: EditEmployeeModalProps) => {
-  // Fields to exclude from editing
   const nonEditableFields = ['_id', '__v', 'createdAt', 'updatedAt', 'id']
-  const editableFields = Object.keys(employee).filter(
-    (field) => !nonEditableFields.includes(field)
-  )
-
-  // Initialize formData with only editable fields
-  const initialFormData = editableFields.reduce((acc, field) => {
-    acc[field] = employee[field as keyof Employee]
-    return acc
-  }, {} as Partial<Employee>)
+  const initialFormData = omitFields(nonEditableFields, employee)
 
   const [formData, setFormData] = useState(initialFormData)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -97,13 +89,15 @@ const EditEmployeeModal = ({
       <div className="bg-white p-6 rounded-lg shadow-lg w-1/2 max-h-96 overflow-y-auto">
         <h2 className="text-xl font-semibold mb-4">Edit Employee</h2>
         <form onSubmit={handleSubmit}>
-          {editableFields.map((field, idx) => (
+          {Object.keys(formData).map((field, idx) => (
             <div key={idx} className="flex flex-col mb-2">
               <label
                 htmlFor={field}
                 className="text-sm font-semibold capitalize"
               >
-                {field.replace(/([A-Z])/g, ' $1').trim()}
+                {
+                  field.replace(/([A-Z])/g, ' $1').trim() // Convert camelCase to Title Case
+                }
               </label>
               <input
                 type="text"
