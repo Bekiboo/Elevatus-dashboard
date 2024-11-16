@@ -1,7 +1,7 @@
 import { Schema, model, models } from 'mongoose'
 
 export interface Child {
-  _id: string
+  _id?: string
   firstName: string
   lastName: string
   birthdate: Date
@@ -13,6 +13,7 @@ export interface Child {
   address: string
   comments: string
   lastCheckupDate: Date
+  donor: Schema.Types.ObjectId
 }
 
 const childSchema = new Schema<Child>(
@@ -28,6 +29,7 @@ const childSchema = new Schema<Child>(
     address: { type: String, required: true },
     comments: { type: String },
     lastCheckupDate: { type: Date },
+    donor: { type: Schema.Types.ObjectId, ref: 'Donor' }, // Reference to Donor
   },
   { timestamps: true }
 )

@@ -1,7 +1,7 @@
 import { Schema, model, models } from 'mongoose'
 
 export interface Donor {
-  _id: string
+  _id?: string
   name: string
   email: string
   startDate: Date
@@ -12,6 +12,7 @@ export interface Donor {
   frequency: string
   paymentMethod: string
   notes: string
+  children: Schema.Types.ObjectId[]
 }
 
 const donorSchema = new Schema<Donor>(
@@ -26,6 +27,7 @@ const donorSchema = new Schema<Donor>(
     frequency: String,
     paymentMethod: String,
     notes: String,
+    children: [{ type: Schema.Types.ObjectId, ref: 'Child' }], // List of children
   },
   { timestamps: true }
 )
