@@ -28,31 +28,26 @@ const EmployeeDetails = () => {
 
   const [employee, setEmployee] = useState<Employee | null>(null)
   const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getEmployee(employeeId).then((data) => {
-      setEmployee(data)
-    })
+    async function fetchEmployee() {
+      try {
+        await getEmployee(employeeId).then((data) => {
+          setEmployee(data)
+        })
+      } catch (error) {
+        console.error(error)
+      }
+
+      setLoading(false)
+    }
+    fetchEmployee()
   }, [employeeId])
 
   const handleSave = (updatedEmployee: Employee) => {
     setEmployee(updatedEmployee)
-    // Optional: Trigger an API call to update the employee data on the server
   }
-
-  if (!employee)
-    return (
-      <>
-        <div>Employee not found</div>
-
-        <Link
-          href="/employees"
-          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
-        >
-          Back to Employee List
-        </Link>
-      </>
-    )
 
   return (
     <div className="container mx-auto mt-8">
@@ -65,35 +60,37 @@ const EmployeeDetails = () => {
           Back to Employees List
         </Link>
       </div>
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <header className="flex justify-between mb-4">
-          <h2 className="text-xl font-semibold">
-            {employee.firstName} {employee.lastName}
-          </h2>
-          <button
-            className="text-gray-400 hover:text-gray-800 text-sm"
-            onClick={() => setIsEditModalOpen(true)}
-          >
-            Edit ✎
-          </button>
-        </header>
-        <p>
-          <strong>Job Title:</strong> {employee.jobTitle}
-        </p>
-        <p>
-          <strong>Email Address:</strong> {employee.emailAddress}
-        </p>
-        <p>
-          <strong>Specialty:</strong> {employee.specialty}
-        </p>
-      </div>
-
-      <EditEmployeeModal
-        isOpen={isEditModalOpen}
-        employee={employee}
-        onClose={() => setIsEditModalOpen(false)}
-        onSave={handleSave}
-      />
+      {loading && <p>Loading...</p>}
+      {employee && (
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <header className="flex justify-between mb-4">
+            <h2 className="text-xl font-semibold">
+              {employee.firstName} {employee.lastName}
+            </h2>
+            <button
+              className="text-gray-400 hover:text-gray-800 text-sm"
+              onClick={() => setIsEditModalOpen(true)}
+            >
+              Edit ✎
+            </button>
+          </header>
+          <p>
+            <strong>Job Title:</strong> {employee.jobTitle}
+          </p>
+          <p>
+            <strong>Email Address:</strong> {employee.emailAddress}
+          </p>
+          <p>
+            <strong>Specialty:</strong> {employee.specialty}
+          </p>
+          <EditEmployeeModal
+            isOpen={isEditModalOpen}
+            employee={employee}
+            onClose={() => setIsEditModalOpen(false)}
+            onSave={handleSave}
+          />
+        </div>
+      )}
     </div>
   )
 }

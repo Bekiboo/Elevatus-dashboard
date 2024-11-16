@@ -76,7 +76,7 @@ const EditEmployeeModal = ({
 
   const handleDelete = async () => {
     setIsModalOpen(false)
-    await deleteEmployee(employee._id)
+    await deleteEmployee(employee._id!)
     window.location.href = '/employees'
   }
 
@@ -87,7 +87,7 @@ const EditEmployeeModal = ({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    await editEmployee(employee._id, formData)
+    await editEmployee(employee._id!, formData)
     onSave(formData as Employee)
     onClose()
   }
